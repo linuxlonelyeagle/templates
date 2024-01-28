@@ -29,30 +29,11 @@ void print1(T size0) {
   return;
 };
 
-template<typename T, typename U>
-class A {
-  U data1;
-  public:
-  void print() {
-    cout << "normal version." << endl;
-  }
-};
-
-template<typename T>
-class A<T, std::enable_if_t<std::is_same_v<T, int>>> {
-  public:
-  void print() {
-    cout << "int version." << endl;
-  }
-};
-
 
 int main() {
   print0(2);
   print0(2.0);
   print1(static_cast<int>(10));
   print1(static_cast<size_t>(10));
-  A a(static_cast<int>(0));
-  a.print();
   return 0;
 }
