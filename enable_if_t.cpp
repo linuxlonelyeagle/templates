@@ -58,7 +58,6 @@ class A<T, std::enable_if_t<std::is_same_v<T, std::string>, std::string>> {
      }
 };
 
-
 int main() {
   print0(2);
   print0(2.0);
