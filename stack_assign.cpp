@@ -1,40 +1,33 @@
-#include <iostream>
 #include <deque>
+#include <iostream>
 
 using namespace std;
 
-template<typename T>
-class Stack {
+template <typename T> class Stack {
   // use friend to make Stack be friend class.
-  template<typename> friend class Stack;
-  private:
-    std::deque<T> elems;
-  public:
-    void push(T const& value) {
-      elems.push_back(value);
-    }
-    void pop() {
-      assert(!elems.empty());
-      elems.pop_back();
-    }
+  template <typename> friend class Stack;
 
-    T const& top() const {
-      return elems.back();
-    }
+private:
+  std::deque<T> elems;
 
-    bool empty() const {
-      return elems.empty();
-    } 
-    template<typename T2>
-    Stack& operator=(Stack<T2> const&);  
+public:
+  void push(T const &value) { elems.push_back(value); }
+  void pop() {
+    assert(!elems.empty());
+    elems.pop_back();
+  }
+
+  T const &top() const { return elems.back(); }
+
+  bool empty() const { return elems.empty(); }
+  template <typename T2> Stack &operator=(Stack<T2> const &);
 };
 
-template<typename T>
-template<typename T2>
-Stack<T>& Stack<T>::operator=(Stack<T2> const& op2) {
+template <typename T>
+template <typename T2>
+Stack<T> &Stack<T>::operator=(Stack<T2> const &op2) {
   elems.clear();
-  elems.insert(elems.begin(), 
-  op2.elems.begin(), op2.elems.end());
+  elems.insert(elems.begin(), op2.elems.begin(), op2.elems.end());
   return *this;
 }
 

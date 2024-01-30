@@ -2,19 +2,15 @@
 
 using namespace std;
 
-template<typename T> 
-class Base {
+template <typename T> class Base {
 public:
-  void bar() {
-    cout << "bar." << endl;
-  }
+  void bar() { cout << "bar." << endl; }
 };
 
-template<typename T> 
-class Derived : Base<T> {
+template <typename T> class Derived : Base<T> {
 public:
   void foo() {
-    this->bar(); 
+    this->bar();
     Base<T>::bar();
   };
 };
