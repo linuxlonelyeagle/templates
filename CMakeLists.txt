@@ -13,3 +13,5 @@ add_executable(template_variable template_variable.cpp)
 add_executable(Stack Stack.cpp)
 add_executable(is_convertible is_convertible.cpp)
 add_executable(decay decay.cpp)
+add_executable(ref_cref ref_cref.cpp)
+
